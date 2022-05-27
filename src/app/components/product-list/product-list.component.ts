@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetcherService } from '../../data-fetcher.service';
+import { Product } from '../../product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -7,15 +8,20 @@ import { DataFetcherService } from '../../data-fetcher.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: { title: string }[] = [];
+  products: Product[] = [];
 
   constructor(private dataFetcher: DataFetcherService) {}
 
   ngOnInit(): void {
     this.dataFetcher.getAllProducts().subscribe({
-      next: (data: any) => {
+      next: (data: Product[]) => {
         this.products = [...data];
       },
     });
+  }
+
+  addToCart(data: any) {
+    console.log('added to cart');
+    console.log(data);
   }
 }

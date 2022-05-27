@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Product } from './product.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +11,12 @@ export class DataFetcherService {
 
   constructor(private http: HttpClient) {}
 
-  getAllProducts() {
-    return this.http.get(this.apiLink + '/products/');
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiLink + '/products/');
   }
 
   getProduct(id: string) {
-    return this.http.get(this.apiLink + '/products/' + id);
+    return this.http.get<Product>(this.apiLink + '/products/' + id);
   }
 
   getAllCategories() {
