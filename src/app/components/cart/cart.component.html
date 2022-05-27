@@ -1,1 +1,72 @@
-<p>cart works!</p>
+<div class="container" *ngIf="cart.length > 0">
+  <div id="cart">
+    <button *ngIf="changeableItems.length > 0" (click)="saveNewQuantity()">
+      Save New Quantities
+    </button>
+    <div class="cart-item" *ngFor="let item of cart">
+      <div>
+        <img [src]="item.product.image" alt="" />
+      </div>
+      <div>
+        <h3>
+          {{ item.product.title
+          }}<button (click)="removeItem(item.product.id)">
+            Remove <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </h3>
+        <p>Price: {{ item.product.price }}$</p>
+        <p>
+          Quantity:
+          <input
+            #quantity
+            (input)="
+              updateQuantity({ id: item.product.id, quantity: quantity.value })
+            "
+            [attr.data-id]="item.product.id"
+            type="number"
+            [value]="item.quantity"
+          />
+        </p>
+      </div>
+    </div>
+    <h3>Total: {{ cart | sumPrices | number }}$</h3>
+  </div>
+  <form #addressForm="ngForm" id="addressForm">
+    <label for="name">Full Name</label>
+    <input
+      required
+      #nameEl
+      type="text"
+      id="name"
+      name="name"
+      placeholder="[minimum 3 characters]"
+    />
+    <label for="address">Address</label>
+    <input
+      required
+      #addressEl
+      type="text"
+      id="address"
+      name="address"
+      placeholder="[minimum 6 characters]"
+    />
+    <label for="card">Credit Card</label>
+    <input
+      required
+      #cardEl
+      type="number"
+      id="card"
+      name="card"
+      placeholder="[16-digit number]"
+    />
+    <button
+      [disabled]="addressForm.invalid"
+      (click)="submitAddress(nameEl.value, addressEl.value, cardEl.value)"
+    >
+      Submit
+    </button>
+    <p>We will never share your data with anyone else.</p>
+  </form>
+</div>
+
+<p *ngIf="cart.length <= 0">Your Cart is empty.</p>

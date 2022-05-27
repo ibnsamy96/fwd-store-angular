@@ -28,6 +28,18 @@ export class CartManagementService {
     this.saveToLocalStorage();
   }
 
+  setQuantity(productId: string | number, quantity: string | number) {
+    const productIndexInCart = this.userCart.findIndex(
+      (item) => item.product.id === productId
+    );
+    if (productIndexInCart >= 0)
+      this.userCart[productIndexInCart].quantity = parseInt(
+        quantity as unknown as string
+      );
+
+    this.saveToLocalStorage();
+  }
+
   removeFromCart(productId: string | number) {
     const productIndexInCart = this.userCart.findIndex(
       (item) => item.product.id === productId

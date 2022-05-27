@@ -11,7 +11,7 @@
     #productBuying="ngForm"
     (ngSubmit)="addToCart(productBuying.value, prod)"
   >
-    <select required type="number" value="0" name="numberOfPieces" ngModel>
+    <select required type="number" value="1" name="numberOfPieces">
       <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
         {{ num }}
       </option>

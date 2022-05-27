@@ -9,7 +9,7 @@
     <p>{{ product.description }}</p>
     <form #productBuying="ngForm" (ngSubmit)="addToCart(productBuying.value)">
       <!-- <input type="number" value="0" name="numberOfPieces" ngModel /> -->
-      <select required type="number" value="0" name="numberOfPieces" ngModel>
+      <select required type="number" value="0" name="numberOfPieces">
         <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
           {{ num }}
         </option>

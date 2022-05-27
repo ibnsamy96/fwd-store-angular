@@ -14,6 +14,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProductsGalleryComponent } from './pages/products-gallery/products-gallery.component';
 import { UserCartComponent } from './pages/user-cart/user-cart.component';
+import { SumPricesPipe } from './sum-prices.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserCartComponent } from './pages/user-cart/user-cart.component';
     ProductPageComponent,
     ProductsGalleryComponent,
     UserCartComponent,
+    SumPricesPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
