@@ -60,6 +60,7 @@ export class CartComponent implements OnInit {
 
   removeItem(id: any) {
     this.cartManager.removeFromCart(id);
+    alert('The chosen item was removed from your cart.');
     this.cart = this.cartManager.getCart();
   }
 
