@@ -7,7 +7,10 @@
     <a [routerLink]="prod.id.toString()"> {{ prod.title }}</a>
   </h2>
   <p>{{ prod.description }}</p>
-  <form #productBuying="ngForm" (ngSubmit)="addToCart(productBuying.value)">
+  <form
+    #productBuying="ngForm"
+    (ngSubmit)="addToCart(productBuying.value, prod)"
+  >
     <select required type="number" value="0" name="numberOfPieces" ngModel>
       <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
         {{ num }}

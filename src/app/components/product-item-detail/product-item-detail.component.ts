@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataFetcherService } from 'src/app/data-fetcher.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/product.interface';
+import { CartManagementService } from '../../cart-management.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -11,7 +12,8 @@ import { Product } from 'src/app/product.interface';
 export class ProductItemDetailComponent implements OnInit {
   constructor(
     private dataFetcher: DataFetcherService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cartManager: CartManagementService
   ) {}
   product!: Product;
 
@@ -31,8 +33,7 @@ export class ProductItemDetailComponent implements OnInit {
 
   addToCart(data: any) {
     const numberOfPieces = data.numberOfPieces;
-    alert(numberOfPieces + ' pieces of thee product was added to your cart.');
-    // console.log('');
-    // console.log(data);
+    this.cartManager.addToCart(this.product, numberOfPieces);
+    alert(numberOfPieces + ' pieces of this product was added to your cart.');
   }
 }
