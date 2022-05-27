@@ -1,8 +1,5 @@
 <div class="container" *ngIf="!userInfo.userName && cart.length > 0">
   <div id="cart">
-    <button *ngIf="changeableItems.length > 0" (click)="saveNewQuantity()">
-      Save New Quantities
-    </button>
     <div class="cart-item" *ngFor="let item of cart">
       <button (click)="removeItem(item.product.id)">
         Remove <i class="fa-solid fa-trash-can"></i>
@@ -21,18 +18,21 @@
         <p>
           Quantity:
           <input
+            [(ngModel)]="item.quantity"
             #quantity
-            (input)="
+            (ngModelChange)="
               updateQuantity({ id: item.product.id, quantity: quantity.value })
             "
             [attr.data-id]="item.product.id"
             type="number"
-            [value]="item.quantity"
           />
         </p>
       </div>
     </div>
-    <h3>Total: {{ cart | sumPrices | number }}$</h3>
+    <h2 style="text-align: center">Total: {{ cart | sumPrices | number }}$</h2>
+    <button *ngIf="changeableItems.length > 0" (click)="saveNewQuantity()">
+      Save New Quantities
+    </button>
   </div>
   <form #addressForm="ngForm" id="addressForm">
     <label for="name">Full Name</label>
