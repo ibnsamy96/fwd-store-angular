@@ -1,1 +1,9 @@
-<app-cart></app-cart>
+<app-cart
+  (userSubmittedOrder)="updateUserInfo($event)"
+  *ngIf="!userInfo.userName"
+></app-cart>
+
+<app-confirmation
+  *ngIf="userInfo.userName"
+  [userInfo]="userInfo"
+></app-confirmation>

@@ -1,7 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/types/product.interface';
 import { CartManagementService } from '../../Services/cart-management.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+// import { userInfo } from 'os';
+
+interface UserInfo {
+  userName?: string;
+  address?: string;
+  card?: number;
+  orderPrice?: number;
+}
 
 @Component({
   selector: 'app-cart',
@@ -18,12 +26,14 @@ export class CartComponent implements OnInit {
 
   cart: { product: Product; quantity: number }[] = [];
 
-  userInfo: {
-    userName?: string;
-    address?: string;
-    card?: number;
-    orderPrice?: number;
-  } = {};
+  // userInfo: {
+  //   userName?: string;
+  //   address?: string;
+  //   card?: number;
+  //   orderPrice?: number;
+  // } = {};
+
+  @Output() userSubmittedOrder = new EventEmitter<UserInfo>();
 
   ngOnInit(): void {
     this.cart = this.cartManager.getCart();
@@ -55,12 +65,18 @@ export class CartComponent implements OnInit {
 
   submitAddress(name: any, address: any, card: any) {
     console.log({ userInfo: { name, address, card } });
-    // this.router.navigate(['cart', 'order-confirmed']);
-    this.userInfo.userName = name;
-    this.userInfo.address = address;
-    this.userInfo.card = card;
-    this.userInfo.orderPrice = this.cart.reduce((acc, item) => {
+    const userInfo: UserInfo = {};
+    userInfo.userName = name;
+    userInfo.address = address;
+    userInfo.card = card;
+    userInfo.orderPrice = this.cart.reduce((acc, item) => {
       return acc + item.product.price * item.quantity;
     }, 0);
+
+    console.log(userInfo);
+
+    this.userSubmittedOrder.emit(userInfo);
+
+    // this.router.navigate(['cart', 'order-confirmed']);
   }
 }

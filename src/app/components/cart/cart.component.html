@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!userInfo.userName && cart.length > 0">
+<div class="container" *ngIf="cart.length > 0">
   <div id="cart">
     <div class="cart-item" *ngFor="let item of cart">
       <button (click)="removeItem(item.product.id)">
@@ -81,9 +81,4 @@
   </form>
 </div>
 
-<p *ngIf="!userInfo.userName && cart.length <= 0">Your Cart is empty.</p>
-
-<app-confirmation
-  *ngIf="userInfo.userName"
-  [userInfo]="userInfo"
-></app-confirmation>
+<p *ngIf="cart.length <= 0">Your Cart is empty.</p>
