@@ -1,9 +1,17 @@
 <h1>My Store</h1>
 <ul>
-  <li id="storeAnchor" routerLinkActive="active">
-    <a routerLink="/store">Products</a>
+  <li
+    id="storeAnchor"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a routerLink="/products">Products</a>
   </li>
-  <li id="cartAnchor" routerLinkActive="active">
+  <li
+    id="cartAnchor"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     <a routerLink="/cart">Cart <i class="fa-solid fa-cart-shopping"></i></a>
   </li>
 </ul>

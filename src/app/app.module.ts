@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import { ProductItemComponent } from './components/product-item/product-item.component';
+// import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
@@ -21,7 +21,6 @@ import { UserCartComponent } from './pages/user-cart/user-cart.component';
     HeaderComponent,
     CartComponent,
     ConfirmationComponent,
-    ProductItemComponent,
     ProductItemDetailComponent,
     ProductListComponent,
     ProductPageComponent,

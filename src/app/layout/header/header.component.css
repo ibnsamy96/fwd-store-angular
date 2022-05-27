@@ -19,6 +19,9 @@ ul {
 
 li {
   display: inline-block;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 li a {
@@ -29,20 +32,20 @@ li a {
 }
 
 #cartAnchor {
-  border-radius: 8px;
-  background-color: darkcyan;
+  /* background-color: darkcyan; */
   margin-left: 1rem;
 }
 
 .active a {
   /* color: cadetblue; */
   cursor: default;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-#cartAnchor.active {
+/* #cartAnchor.active {
   background-color: darkmagenta;
-}
+} */
 
 #cartAnchor.active a {
   text-decoration: none;

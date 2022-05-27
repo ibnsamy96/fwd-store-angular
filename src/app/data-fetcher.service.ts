@@ -15,7 +15,7 @@ export class DataFetcherService {
     return this.http.get<Product[]>(this.apiLink + '/products/');
   }
 
-  getProduct(id: string) {
+  getProduct(id: number | string): Observable<Product> {
     return this.http.get<Product>(this.apiLink + '/products/' + id);
   }
 

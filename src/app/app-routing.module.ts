@@ -5,14 +5,14 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { ProductsGalleryComponent } from './pages/products-gallery/products-gallery.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'store', pathMatch: 'full' },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
   {
-    path: 'store',
+    path: 'products',
     component: ProductsGalleryComponent,
   },
-  { path: 'product/:id', component: ProductPageComponent },
+  { path: 'products/:id', component: ProductPageComponent },
   { path: 'cart', component: CartComponent },
-  { path: '**', redirectTo: 'store' },
+  { path: '**', redirectTo: 'products' },
 ];
 
 @NgModule({

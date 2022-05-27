@@ -21,7 +21,9 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(data: any) {
-    console.log('added to cart');
-    console.log(data);
+    const numberOfPieces = data.numberOfPieces;
+    alert(numberOfPieces + ' pieces of thee product was added to your cart.');
+    // console.log('');
+    // console.log(data);
   }
 }

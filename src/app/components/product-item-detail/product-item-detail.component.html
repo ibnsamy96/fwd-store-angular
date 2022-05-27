@@ -1,1 +1,24 @@
-<p>product-item-detail works!</p>
+<div class="container" *ngIf="product">
+  <div>
+    <img [src]="product.image" alt="" />
+    <span>{{ product.price }}$</span>
+  </div>
+  <div>
+    <span>{{ product.category | uppercase }}</span>
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <form #productBuying="ngForm" (ngSubmit)="addToCart(productBuying.value)">
+      <!-- <input type="number" value="0" name="numberOfPieces" ngModel /> -->
+      <select required type="number" value="0" name="numberOfPieces" ngModel>
+        <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
+          {{ num }}
+        </option>
+      </select>
+      <input
+        [disabled]="productBuying.invalid"
+        type="submit"
+        value="Add To Cart"
+      />
+    </form>
+  </div>
+</div>
