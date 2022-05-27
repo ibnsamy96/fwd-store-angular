@@ -2,11 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+*:not(i) {
   font-family: "Hind Madurai", sans-serif;
 }
+
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
 }

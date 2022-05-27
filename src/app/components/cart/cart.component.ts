@@ -48,6 +48,6 @@ export class CartComponent implements OnInit {
 
   submitAddress(name: any, address: any, card: any) {
     console.log({ userInfo: { name, address, card } });
-    this.router.navigate(['order-confirmed']);
+    this.router.navigate(['cart', 'order-confirmed']);
   }
 }
