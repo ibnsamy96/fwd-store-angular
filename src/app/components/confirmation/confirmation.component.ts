@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartManagementService } from '../../Services/cart-management.service';
 
 @Component({
@@ -8,6 +8,13 @@ import { CartManagementService } from '../../Services/cart-management.service';
 })
 export class ConfirmationComponent implements OnInit {
   constructor(private cartManager: CartManagementService) {}
+
+  @Input() userInfo!: {
+    userName?: string;
+    address?: string;
+    card?: number;
+    orderPrice?: number;
+  };
 
   ngOnInit(): void {
     // console.log(payment);

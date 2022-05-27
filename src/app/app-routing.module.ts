@@ -13,7 +13,6 @@ const routes: Routes = [
   },
   { path: 'products/:id', component: ProductPageComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'cart/order-confirmed', component: ConfirmationComponent },
   { path: '**', redirectTo: 'products' },
 ];
 

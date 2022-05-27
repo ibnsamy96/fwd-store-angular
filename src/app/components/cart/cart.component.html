@@ -1,4 +1,4 @@
-<div class="container" *ngIf="cart.length > 0">
+<div class="container" *ngIf="!userInfo.userName && cart.length > 0">
   <div id="cart">
     <button *ngIf="changeableItems.length > 0" (click)="saveNewQuantity()">
       Save New Quantities
@@ -81,4 +81,9 @@
   </form>
 </div>
 
-<p *ngIf="cart.length <= 0">Your Cart is empty.</p>
+<p *ngIf="!userInfo.userName && cart.length <= 0">Your Cart is empty.</p>
+
+<app-confirmation
+  *ngIf="userInfo.userName"
+  [userInfo]="userInfo"
+></app-confirmation>
