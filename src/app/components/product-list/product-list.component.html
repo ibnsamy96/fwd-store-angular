@@ -1,25 +1,29 @@
-<div *ngFor="let prod of products">
-  <div>
-    <img [src]="prod.image" [alt]="prod.title" />
-    <span> {{ prod.price }}$</span>
+<div class="container">
+  <div *ngFor="let prod of products">
+    <div>
+      <img [src]="prod.image" [alt]="prod.title" />
+      <span> {{ prod.price }}$</span>
+    </div>
+    <h2>
+      <a [routerLink]="prod.id.toString()"> {{ prod.title }}</a>
+    </h2>
+    <p>{{ prod.description }}</p>
+    <form
+      #productBuying="ngForm"
+      (ngSubmit)="addToCart(productBuying.value, prod)"
+    >
+      <select required type="number" value="1" name="numberOfPieces">
+        <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
+          {{ num }}
+        </option>
+      </select>
+      <input
+        [disabled]="productBuying.invalid"
+        type="submit"
+        value="Add To Cart"
+      />
+    </form>
   </div>
-  <h2>
-    <a [routerLink]="prod.id.toString()"> {{ prod.title }}</a>
-  </h2>
-  <p>{{ prod.description }}</p>
-  <form
-    #productBuying="ngForm"
-    (ngSubmit)="addToCart(productBuying.value, prod)"
-  >
-    <select required type="number" value="1" name="numberOfPieces">
-      <option *ngFor="let num of [1, 2, 3, 4, 5]" [value]="num">
-        {{ num }}
-      </option>
-    </select>
-    <input
-      [disabled]="productBuying.invalid"
-      type="submit"
-      value="Add To Cart"
-    />
-  </form>
 </div>
+
+<div class="loader" *ngIf="products.length === 0"></div>
