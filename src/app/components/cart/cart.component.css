@@ -156,6 +156,11 @@ form .ng-touched.ng-invalid {
   border-color: rgba(255, 0, 0, 0.5);
 }
 
+form label span {
+  font-style: italic;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     flex-direction: column;

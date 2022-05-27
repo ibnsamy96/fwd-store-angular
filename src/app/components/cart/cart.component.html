@@ -35,36 +35,51 @@
     </button>
   </div>
   <form #addressForm="ngForm" id="addressForm">
-    <label for="name">Full Name</label>
+    <label for="name"
+      >Full Name
+      <span *ngIf="nameEl.invalid && nameEl.touched">
+        ~ min-length is 3</span
+      ></label
+    >
     <input
       required
       minlength="3"
-      #nameEl
+      #nameEl="ngModel"
       ngModel
       type="text"
       id="name"
       name="name"
       placeholder="[minimum 3 characters]"
     />
-    <label for="address">Address</label>
+    <label for="address"
+      >Address
+      <span *ngIf="addressEl.invalid && addressEl.touched">
+        ~ min-length is 6</span
+      ></label
+    >
     <input
       minlength="6"
       required
-      #addressEl
+      #addressEl="ngModel"
       type="text"
       id="address"
       name="address"
       placeholder="[minimum 6 characters]"
       ngModel
     />
-    <label for="card">Credit Card</label>
+    <label for="card"
+      >Credit Card
+      <span *ngIf="cardEl.invalid && cardEl.touched">
+        ~ write 16-digit number</span
+      ></label
+    >
 
     <input
       ngModel
+      #cardEl="ngModel"
       min="1000000000000000"
       max="9999999999999999"
       required
-      #cardEl
       type="number"
       id="credit-card"
       name="credit-card"
