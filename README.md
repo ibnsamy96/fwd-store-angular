@@ -1,27 +1,26 @@
-# FwdStoreFrontend
+# Fwd Store Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Description
 
-## Development server
+A Project in the [egFWD](https://egfwd.com/) initiative (full-stack nanodegree).
+It presents the basic functionalities of a store frontend website.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instructions
 
-## Code scaffolding
+After downloading the project here's a couple of things you should do in order to run it:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. install packages
 
-## Build
+   ```shell
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   I didn't install any outside dependencies but you have to use it to install the default node modules.
 
-## Running unit tests
+2. run the app
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```shell
+   ng serve
+   ```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   This will start the dev server at [localhost:9000](http://localhost:4200/) in your browser.
