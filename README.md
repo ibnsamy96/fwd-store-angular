@@ -4,6 +4,7 @@
 
 A Project in the [egFWD](https://egfwd.com/) initiative (full-stack nanodegree).
 It presents the basic functionalities of a store frontend website.
+While navigating the store app, the user may see what items are there in the products gallery and he may add items to his cart. Through his cart , he may update his order items as he like and submit it when he is satisfied.
 
 ## Instructions
 
@@ -24,3 +25,7 @@ After downloading the project here's a couple of things you should do in order t
    ```
 
    This will start the dev server at [localhost:9000](http://localhost:4200/) in your browser.
+
+## Credits
+
+This frontend app couldn't be done without the efforts made by 'Mohammad Reza' on his easy to use [Fake Store API](https://fakestoreapi.com/), Thanks Mohammed, you built an api that made my learning journey easier ^^
