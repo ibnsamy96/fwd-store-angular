@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from './product.interface';
+import { Product } from '../types/product.interface';
 
 @Pipe({
   name: 'sumPrices',

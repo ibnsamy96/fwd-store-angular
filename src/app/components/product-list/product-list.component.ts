@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataFetcherService } from '../../data-fetcher.service';
-import { Product } from '../../product.interface';
-import { CartManagementService } from '../../cart-management.service';
+import { DataFetcherService } from '../../Services/data-fetcher.service';
+import { Product } from '../../types/product.interface';
+import { CartManagementService } from '../../Services/cart-management.service';
 
 @Component({
   selector: 'app-product-list',
@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(data: any, product: Product) {
-    const numberOfPieces = data.numberOfPieces;
+    const numberOfPieces = parseInt(data.numberOfPieces);
     this.cartManager.addToCart(product, numberOfPieces);
     alert(numberOfPieces + ' pieces of this product was added to your cart.');
   }

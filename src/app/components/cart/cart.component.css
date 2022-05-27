@@ -22,12 +22,14 @@
   display: flex;
   flex-direction: row;
   padding: 20px;
+  position: relative;
 }
 
 .cart-item > div:first-of-type {
   /* width: 100%; */
   margin-right: 20px;
-  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
   height: 100px;
   /* border-radius: 10px; */
   /* padding: 50px; */
@@ -50,6 +52,21 @@
   padding: 10px 5px;
   cursor: pointer;
   border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.cart-item:hover button {
+  display: inline-block;
+  opacity: 1;
+}
+
+h3 a {
+  color: indigo;
+  text-decoration: none;
 }
 
 .cart-item button:hover {
@@ -125,9 +142,18 @@ form > button {
   cursor: pointer;
 }
 
-form > button:hover {
+form > button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+form > button:not([disabled]):hover {
   background-color: blueviolet;
   color: white;
+}
+
+form .ng-touched.ng-invalid {
+  border-color: rgba(255, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 1200px) {

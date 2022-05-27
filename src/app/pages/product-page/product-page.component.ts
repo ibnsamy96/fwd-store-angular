@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataFetcherService } from '../../data-fetcher.service';
+import { DataFetcherService } from '../../Services/data-fetcher.service';
 
 @Component({
   selector: 'app-product-page',

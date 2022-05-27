@@ -4,15 +4,18 @@
       Save New Quantities
     </button>
     <div class="cart-item" *ngFor="let item of cart">
+      <button (click)="removeItem(item.product.id)">
+        Remove <i class="fa-solid fa-trash-can"></i>
+      </button>
+
       <div>
         <img [src]="item.product.image" alt="" />
       </div>
       <div>
         <h3>
-          {{ item.product.title
-          }}<button (click)="removeItem(item.product.id)">
-            Remove <i class="fa-solid fa-trash-can"></i>
-          </button>
+          <a [routerLink]="['/products', item.product.id]">
+            {{ item.product.title }}</a
+          >
         </h3>
         <p>Price: {{ item.product.price }}$</p>
         <p>
@@ -35,7 +38,9 @@
     <label for="name">Full Name</label>
     <input
       required
+      minlength="3"
       #nameEl
+      ngModel
       type="text"
       id="name"
       name="name"
@@ -43,22 +48,29 @@
     />
     <label for="address">Address</label>
     <input
+      minlength="6"
       required
       #addressEl
       type="text"
       id="address"
       name="address"
       placeholder="[minimum 6 characters]"
+      ngModel
     />
     <label for="card">Credit Card</label>
+
     <input
+      ngModel
+      min="1000000000000000"
+      max="9999999999999999"
       required
       #cardEl
       type="number"
-      id="card"
-      name="card"
+      id="credit-card"
+      name="credit-card"
       placeholder="[16-digit number]"
     />
+
     <button
       [disabled]="addressForm.invalid"
       (click)="submitAddress(nameEl.value, addressEl.value, cardEl.value)"

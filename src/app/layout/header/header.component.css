@@ -13,6 +13,10 @@
   font-family: "Acme", sans-serif;
 }
 
+h1 {
+  user-select: none;
+}
+
 ul {
   list-style-type: none;
 }

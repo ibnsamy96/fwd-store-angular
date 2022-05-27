@@ -1,4 +1,4 @@
-import { SumPricesPipe } from './sum-prices.pipe';
+import { SumPricesPipe } from './pipes/sum-prices.pipe';
 
 describe('SumPricesPipe', () => {
   it('create an instance', () => {
