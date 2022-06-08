@@ -28,4 +28,4 @@ After downloading the project here's a couple of things you should do in order t
 
 ## Credits
 
-This frontend app couldn't be done without the efforts made by 'Mohammad Reza' on his easy to use [Fake Store API](https://fakestoreapi.com/), Thanks Mohammed, you built an api that made my learning journey easier ^^
+This frontend app couldn't be done without the efforts made by [Mohammad Reza @keikaavousi](https://github.com/keikaavousi) on his easy to use [Fake Store API](https://fakestoreapi.com/), Thanks Mohammad, you built an api that made my learning journey easier ^^
